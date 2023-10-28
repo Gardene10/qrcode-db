@@ -1,11 +1,12 @@
 
-// conexao com o DB 
-//carregando  as variaveis de ambiente / bibliotecas
-require('dotenv').config()
 const express = require('express')
 const mongose = require('mongoose')
-const cors = require('cors')
+
 const fileupload = require('express-fileupload')
+const cors = require('./src/middleware/cors');
+
+
+require('dotenv').config()
 
 //importando o Routes
 const apiRoutes = require('./src/routes')
@@ -22,7 +23,7 @@ mongose.connection.on('error',(error => {
 //criando o servidor
 
 const server = express()
-server.use(cors())
+server.use(cors);
 server.use(express.json())
 server.use(express.urlencoded({extended:true}))
 server.use(fileupload())

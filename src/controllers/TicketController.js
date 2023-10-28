@@ -1,5 +1,4 @@
 const Ticket = require('../models/Ticket');
-
 // Função para adicionar um ticket ao banco de dados
 const addTicket = async (req, res) => {
   try {
